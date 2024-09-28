@@ -3,43 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>引き算</title>
+    <title>計算機</title>
     <style>
         body {
             font-family: Arial, sans-serif;
         }
         .calculator {
             margin: 50px auto;
-            text-align: left;  
         }
         h1 {
-            text-align: left;  
+            text-align: left;
             margin-left: 20px; 
         }
-        form {
-            margin-left: 20px; 
-        }
-        .calculator input, .calculator button, .calculator span {
+        .calculator input, .calculator select, .calculator button {
             font-size: 18px;
             padding: 5px;
             margin: 5px;
-        }
-        .result {
-            text-align: left;  
-            margin-left: 20px;  
         }
     </style>
 </head>
 <body>
     <div class="calculator">
-        <h1>引き算</h1>
-        <form action="/minus/calculate" method="get">
+        <h1>計算機</h1> 
+        <form action="/calculate" method="get">
             <input type="number" name="num1" required>
-            <span>ー</span>
+            <select name="operation">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">×</option>
+                <option value="/">÷</option>
+            </select>
             <input type="number" name="num2" required>
             <button type="submit">=</button>
         </form>
-        <h2 th:if="${result != null}" class="result"><span th:text="${result}"></span></h2>
+        
+        <h2 th:if="${result != null}"><span th:text="${result}"></span></h2>
     </div>
 </body>
 </html>
